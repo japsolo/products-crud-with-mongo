@@ -1,0 +1,21 @@
+<%- include('includes/head', {title: 'Home'}); %>
+<%- include('includes/nav-bar'); %>
+		<div class="container">
+			<div class="row">
+				<% products.forEach(product => { %>
+					<div class="col-lg-3">
+						<div class="card" style="margin-top: 20px; margin-bottom: 20px;">
+							<img class="card-img-top" src="/assets/images/pdtos/<%= product.pdtoImage %>" alt="thumbnail">
+							<div class="card-body">
+								<h5 class="card-title"><%= product.pdtoName %></h5>
+								<p class="card-text"><b>$ <%= product.pdtoPrice %></b></p>
+								<p class="card-text"><%= product.pdtoDesc %></p>
+								<a href="/products/detail/<%= product.slug %>?id=<%= product._id%>" class="btn btn-info">Detalle</a>
+								<a href="/products/edit/<%= product.slug %>?id=<%= product._id %>" class="btn btn-warning">Editar</a>
+							</div>
+						</div>
+					</div>
+				<% }) %>
+			</div>
+		</div>
+<%- include('includes/footer'); %>
